@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout branch
-      uses: actions/checkout@v1
+      uses: actions/checkout@v1 # https://github.com/marketplace/actions/checkout
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v1 # https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Deploy app files to S3 bucket
-      run: aws s3 sync ./app/ s3://${{ secrets.AWS_S3_BUCKET }} --delete
+      run: aws s3 sync ./app/ s3://${{ secrets.AWS_S3_BUCKET }} --delete # https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
