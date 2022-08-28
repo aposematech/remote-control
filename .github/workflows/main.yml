@@ -7,6 +7,7 @@ on:
 
 jobs:
   deploy:
+    name: Deploy app files to S3 bucket
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
