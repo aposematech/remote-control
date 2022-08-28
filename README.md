@@ -1,1 +1,1 @@
-# hypno-site
+# demo-site
