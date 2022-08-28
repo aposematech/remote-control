@@ -1,11 +1,11 @@
-variable "registered_domain_name" {
-  description = "Existing Route 53 registered domain name"
+variable "region" {
+  description = "AWS region"
   type        = string
   default     = ""
 }
 
-variable "region" {
-  description = "AWS Region"
+variable "registered_domain_name" {
+  description = "Route 53 registered domain name"
   type        = string
   default     = ""
 }
