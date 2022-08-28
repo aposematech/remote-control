@@ -1,1 +1,1 @@
-# static-website
+# hypno-site
