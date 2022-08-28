@@ -3,7 +3,7 @@ terraform {
   cloud {
     organization = "djfav"
     workspaces {
-      name = "hypno-site"
+      name = "demo-site"
     }
   }
 
