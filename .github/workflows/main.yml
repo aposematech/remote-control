@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout branch
+    - name: Checkout
       uses: actions/checkout@v3 # https://github.com/marketplace/actions/checkout
 
     - name: Configure AWS credentials
