@@ -21,4 +21,4 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Deploy app files to S3 bucket
-      run: aws s3 sync ./app/ s3://${{ secrets.AWS_S3_BUCKET }} --delete # https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
+      run: aws s3 sync ./app/ s3://${{ secrets.AWS_S3_BUCKET }} --size-only # https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
