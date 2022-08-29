@@ -7,7 +7,7 @@ variable "region" {
 variable "registered_domain_name" {
   description = "Route 53 registered domain name"
   type        = string
-  default     = ""
+  default     = "djfav.ninja"
 }
 
 variable "default_page" {
