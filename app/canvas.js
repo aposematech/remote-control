@@ -8,12 +8,12 @@ var canvas,
 	angle = 0;
 
 function draw() {
-	var radius = 200;
+	var radius = 400;
 	context.clearRect(0, 0, width, height);
 	context.save();
 	context.translate(width / 2, height / 2);
 	context.rotate(angle / Math.PI);
-	for (var i = 1; i < 20; i++) {
+	for (var i = 1; i < 40; i++) {
 		x = Math.sin(i / 2) * 20;
 		context.beginPath();
 		if (i % 2 !== 0) {
