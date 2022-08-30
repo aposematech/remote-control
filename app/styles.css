@@ -3,3 +3,15 @@ body {
     margin: 0px;
     overflow: hidden;
 }
+
+a {
+    color: white;
+}
+
+footer {
+    background-color: black;
+    bottom: 0;
+    font-family: monospace;
+    position: sticky;
+    text-align: center;
+}
