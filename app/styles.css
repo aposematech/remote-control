@@ -12,6 +12,7 @@ footer {
     background-color: black;
     bottom: 0;
     font-family: monospace;
+    font-size: 1vw;
     position: sticky;
     text-align: center;
 }
