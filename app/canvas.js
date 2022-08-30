@@ -22,7 +22,7 @@ function draw() {
 		context.fill();
 	}
 	context.restore();
-	angle += 0.5;
+	angle += 0.2;
 }
 
 window.onload = function () {
@@ -32,5 +32,5 @@ window.onload = function () {
 	height = window.innerHeight;
 	canvas.width = width;
 	canvas.height = height;
-	window.setInterval(draw, 50);
+	window.setInterval(draw, 20);
 };
