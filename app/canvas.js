@@ -17,7 +17,7 @@ function draw() {
 	for (var i = 1; i < max; i++) {
 		x = Math.sin(i / 2) * (radius / (max / 2));
 		context.beginPath();
-		context.fillStyle = ((i % 2 !== 0) ? "#000" : "#fff");
+		context.fillStyle = ((i % 2 !== 0) ? "black" : "white");
 		context.arc(x, y, radius - i * (radius / max), 0, 2 * Math.PI, false);
 		context.fill();
 	}
