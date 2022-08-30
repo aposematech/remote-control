@@ -3,13 +3,13 @@ var canvas,
 	context,
 	width, 
 	height,
+	radius,
 	x = 0,
-	y= 0,
-	angle = 0;
+	y = 0,
+	angle = 0,
+	max = 90;
 
 function draw() {
-	var max = 90
-	var radius = ((width > height) ? width : height);
 	context.clearRect(0, 0, width, height);
 	context.save();
 	context.translate(width / 2, height / 2);
@@ -32,5 +32,6 @@ window.onload = function () {
 	height = window.innerHeight;
 	canvas.width = width;
 	canvas.height = height;
+	radius = ((width > height) ? width : height);
 	window.setInterval(draw, 20);
 };
