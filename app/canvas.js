@@ -8,21 +8,21 @@ var canvas,
 	angle = 0;
 
 function draw() {
-	var radius = width;
+	var radius = ((width > height) ? width : height);
 	context.clearRect(0, 0, width, height);
 	context.save();
 	context.translate(width / 2, height / 2);
 	context.rotate(angle / Math.PI);
 	for (var i = 1; i < 40; i++) {
-		x = Math.sin(i / 2) * (width / 20);
+		x = Math.sin(i / 2) * (radius / 20);
 		context.beginPath();
 		if (i % 2 !== 0) {
 		context.fillStyle = "#000";
-		context.arc(x, y, radius - i * (width / 40), 0, 2 * Math.PI, false);
+		context.arc(x, y, radius - i * (radius / 40), 0, 2 * Math.PI, false);
 		context.fill();
 		} else {
 		context.fillStyle = "#fff";
-		context.arc(x, y, radius - i * (width / 40), 0, 2 * Math.PI, false);
+		context.arc(x, y, radius - i * (radius / 40), 0, 2 * Math.PI, false);
 		context.fill();
 		}
 	}
