@@ -18,7 +18,7 @@ terraform {
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 provider "aws" {
-  region = var.region
+  region = var.aws_region
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53domains_registered_domain
