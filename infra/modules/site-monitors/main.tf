@@ -44,6 +44,7 @@ resource "statuscake_uptime_check" "uptime_check" {
   }
 }
 
+# https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs/resources/ssl_check
 resource "statuscake_ssl_check" "ssl_check" {
   check_interval = 86400
   paused         = false
