@@ -1,3 +1,13 @@
+terraform {
+  # https://www.terraform.io/language/providers/requirements
+  required_providers {
+    github = {
+      source  = "integrations/github"
+      version = "~> 4.0"
+    }
+  }
+}
+
 # https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository
 resource "github_repository" "git_repo" {
   name         = terraform.workspace
