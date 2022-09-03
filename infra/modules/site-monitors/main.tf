@@ -10,7 +10,7 @@ terraform {
 
 # https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs/resources/contact_group
 resource "statuscake_contact_group" "ops_contact_group" {
-  name = "${terraform.workspace}-ops"
+  name = var.registered_domain_name
 
   email_addresses = [
     var.ops_email_address,
