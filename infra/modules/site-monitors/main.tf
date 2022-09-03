@@ -22,7 +22,8 @@ resource "statuscake_uptime_check" "uptime_check" {
   name           = "${terraform.workspace}-uptime-check"
   check_interval = 300
   confirmation   = 2
-  paused         = true
+  trigger_rate   = 4
+  paused         = false
 
   contact_groups = [
     statuscake_contact_group.ops_contact_group.id
@@ -45,7 +46,7 @@ resource "statuscake_uptime_check" "uptime_check" {
 
 resource "statuscake_ssl_check" "ssl_check" {
   check_interval = 86400
-  paused         = true
+  paused         = false
 
   contact_groups = [
     statuscake_contact_group.ops_contact_group.id
@@ -56,8 +57,8 @@ resource "statuscake_ssl_check" "ssl_check" {
 
     on_reminder = true
     on_expiry   = true
-    on_broken   = true
-    on_mixed    = true
+    on_broken   = false
+    on_mixed    = false
   }
 
   monitored_resource {
