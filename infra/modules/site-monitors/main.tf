@@ -30,13 +30,12 @@ resource "statuscake_uptime_check" "uptime_check" {
   ]
 
   http_check {
-    timeout      = 30
+    timeout      = 15
     validate_ssl = true
 
     status_codes = [
       "403",
       "404",
-      "418",
     ]
   }
 
