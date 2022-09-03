@@ -117,9 +117,9 @@ resource "aws_iam_role_policy_attachment" "canary_role_policy_attachment" {
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/synthetics_canary
 resource "aws_synthetics_canary" "static_website_canary" {
   name                 = var.canary_name
-  s3_bucket            = "s3://${var.canary_script_bucket_name}"
+  s3_bucket            = var.canary_script_bucket_name
   s3_key               = var.canary_s3_key
-  artifact_s3_location = "s3://${var.canary_artifacts_bucket_name}"
+  artifact_s3_location = var.canary_artifacts_bucket_name
   execution_role_arn   = aws_iam_role.canary_role.arn
   handler              = var.canary_handler
   runtime_version      = var.canary_runtime_version
