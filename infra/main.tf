@@ -58,5 +58,4 @@ module "site_monitors" {
   source                 = "./modules/site-monitors"
   registered_domain_name = module.static_website.registered_domain_name
   ops_email_address      = var.ops_email_address
-  ops_mobile_number      = var.ops_mobile_number
 }

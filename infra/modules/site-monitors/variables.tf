@@ -9,9 +9,3 @@ variable "ops_email_address" {
   type        = string
   default     = ""
 }
-
-variable "ops_mobile_number" {
-  description = "Operations Mobile Number"
-  type        = string
-  default     = ""
-}
