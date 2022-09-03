@@ -123,7 +123,7 @@ resource "aws_synthetics_canary" "static_website_canary" {
   execution_role_arn   = aws_iam_role.canary_role.arn
   handler              = var.canary_handler
   runtime_version      = var.canary_runtime_version
-  start_canary         = true
+  start_canary         = false
 
   schedule {
     expression = var.canary_schedule_expression
