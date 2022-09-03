@@ -23,3 +23,16 @@ variable "aws_access_key" {
   default     = ""
   sensitive   = true
 }
+
+variable "statuscake_api_token" {
+  description = "StatusCake API Token"
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
+variable "ops_email_address" {
+  description = "Operations Team Email Address"
+  type        = string
+  default     = ""
+}

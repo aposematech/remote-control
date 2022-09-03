@@ -63,3 +63,26 @@ provider "registry.terraform.io/integrations/github" {
     "zh:f75ec1e71924c50b346bced15883c626f697ffd3ee6c4bb2835e4170fe65215a",
   ]
 }
+
+provider "registry.terraform.io/statuscakedev/statuscake" {
+  version     = "2.0.3"
+  constraints = "~> 2.0.0"
+  hashes = [
+    "h1:p59YX5ngLYcxPP3TcPGeB9upck9GHWwr2rCDrW4t3xg=",
+    "zh:1c3e89cf19118fc07d7b04257251fc9897e722c16e0a0df7b07fcd261f8c12e7",
+    "zh:23c8c0aba2079500e762f4222a52faa015d256315298677f02ed9669c28671ed",
+    "zh:401de1618e1deedd22e77a0a2473a12d2ea5e818fd1e3406012b1c87d8459dc7",
+    "zh:439c34178b9e23dbe6853631eac5adab95498f45b6adbcfb4246ecb160365cd2",
+    "zh:47abf79a5a890a25123ebca80c313a8c5c2161e5e7cd33d06614fa3ad0383aad",
+    "zh:47be434f8587ce1573734c44560da08c718e5dcd5278e227aa9b0211afd387fb",
+    "zh:4a4aa5ea94d18cc4de2099134d6d486f6e41f39e6f1888ceac85137ba9aadcd7",
+    "zh:74fde1491dc16d375b3b2c47fb94045b32d8db3fdb22afe67c873bcfd1551dbe",
+    "zh:9c1e2845201206f0c5f9c4aba6fd7ed04e81c2e8b38ad2adfcedc6cbf4b65691",
+    "zh:a1f1854e1d2ab7987fd90d31b35a22ffb82ac1d25ceca80cbfd3bdc23e8b004d",
+    "zh:b0c72443d93289de234f5831234c1dcfa53718cb976f6635f0e52103915c6abb",
+    "zh:bae9b4a0052362ea315b76243c4caee65e5512951d77a90eb8fc2130b8d70d01",
+    "zh:c0a4543bf17478ffcf78102cb4281757ebc8d98eb1919faad83ea30ea103b0ec",
+    "zh:e3660bec86147264afdf29df714d3aa8468a7e3c4d1ab6e4e032d1002d3f5f75",
+    "zh:f8e414cf2e8d27748557c64899f257cebe4f95a41f54e272f6820cd2273bbcff",
+  ]
+}

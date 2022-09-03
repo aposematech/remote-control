@@ -1,11 +1,11 @@
 variable "registered_domain_name" {
-  description = "Route 53 registered domain name"
+  description = "Route 53 Registered Domain Name"
   type        = string
   default     = ""
 }
 
 variable "default_page" {
-  description = "Static website default page"
+  description = "Static Website Default Page"
   type        = string
   default     = ""
 }

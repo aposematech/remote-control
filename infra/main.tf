@@ -17,6 +17,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.28.0"
     }
+    statuscake = {
+      source  = "StatusCakeDev/statuscake"
+      version = "~> 2.0.0"
+    }
   }
 }
 
@@ -26,6 +30,11 @@ provider "github" {}
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 provider "aws" {
   region = var.aws_region
+}
+
+# https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs
+provider "statuscake" {
+  api_token = var.statuscake_api_token
 }
 
 module "git_repo" {
@@ -43,4 +52,10 @@ module "static_website" {
   source                 = "./modules/static-website"
   registered_domain_name = "djfav.ninja"
   default_page           = "index.html"
+}
+
+module "site_monitors" {
+  source                 = "./modules/site-monitors"
+  registered_domain_name = module.static_website.registered_domain_name
+  ops_email_address      = var.ops_email_address
 }
