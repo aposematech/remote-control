@@ -1,9 +1,3 @@
-variable "aws_region" {
-  description = "AWS region"
-  type        = string
-  default     = ""
-}
-
 variable "registered_domain_name" {
   description = "Route 53 registered domain name"
   type        = string

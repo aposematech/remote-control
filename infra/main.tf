@@ -25,7 +25,7 @@ provider "github" {}
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 provider "aws" {
-  region = var.aws_region
+  region = "us-east-1"
 }
 
 module "git_repo" {
@@ -41,7 +41,6 @@ module "git_repo" {
 
 module "static_website" {
   source                 = "./modules/static-website"
-  aws_region             = var.aws_region
   registered_domain_name = "djfav.ninja"
   default_page           = "index.html"
 }
