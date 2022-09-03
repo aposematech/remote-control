@@ -31,6 +31,7 @@ resource "statuscake_uptime_check" "uptime_check" {
 
   http_check {
     timeout      = 15
+    user_agent   = "StatusCake Uptime Check"
     validate_ssl = true
 
     status_codes = [
@@ -47,6 +48,7 @@ resource "statuscake_uptime_check" "uptime_check" {
 # https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs/resources/ssl_check
 resource "statuscake_ssl_check" "ssl_check" {
   check_interval = 86400
+  user_agent     = "StatusCake SSL Check"
   paused         = false
 
   contact_groups = [
