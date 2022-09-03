@@ -40,6 +40,12 @@ variable "canary_schedule_expression" {
   default     = ""
 }
 
+variable "canary_handler" {
+  description = "CloudWatch Synthetics Canary Handler"
+  type        = string
+  default     = ""
+}
+
 variable "canary_runtime_version" {
   description = "CloudWatch Synthetics Canary Runtime Version"
   type        = string
