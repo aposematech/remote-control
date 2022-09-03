@@ -53,7 +53,7 @@ module "site_monitor" {
   canary_script_bucket_name    = "djfav.ninja-canary-script"
   canary_s3_key                = "canary.zip"
   canary_artifacts_bucket_name = "djfav.ninja-canary-artifacts"
-  canary_schedule_expression   = "rate(0 hour)"
+  canary_schedule_expression   = "rate(1 hour)"
   canary_handler               = "canary.handler"
   canary_runtime_version       = "syn-python-selenium-1.3"
 }
