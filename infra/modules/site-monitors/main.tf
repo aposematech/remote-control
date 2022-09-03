@@ -15,6 +15,10 @@ resource "statuscake_contact_group" "ops_contact_group" {
   email_addresses = [
     var.ops_email_address,
   ]
+
+  mobile_numbers = [
+    var.ops_mobile_number,
+  ]
 }
 
 # https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs/resources/uptime_check
