@@ -21,8 +21,8 @@ resource "statuscake_contact_group" "ops_contact_group" {
 resource "statuscake_uptime_check" "uptime_check" {
   name           = "${terraform.workspace}-uptime-check"
   check_interval = 300
-  confirmation   = 2
-  trigger_rate   = 4
+  confirmation   = 3
+  trigger_rate   = 5
   paused         = false
 
   contact_groups = [
@@ -42,6 +42,12 @@ resource "statuscake_uptime_check" "uptime_check" {
   monitored_resource {
     address = "https://${var.registered_domain_name}"
   }
+
+  regions = [
+    "california",
+    "chicago",
+    "new-york",
+  ]
 }
 
 resource "statuscake_ssl_check" "ssl_check" {
