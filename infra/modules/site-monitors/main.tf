@@ -34,10 +34,7 @@ resource "statuscake_uptime_check" "uptime_check" {
     user_agent   = "StatusCake Uptime Check"
     validate_ssl = true
 
-    status_codes = [
-      "403",
-      "404",
-    ]
+    status_codes = var.status_codes
   }
 
   monitored_resource {
