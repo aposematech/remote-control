@@ -10,8 +10,7 @@ terraform {
 
 # https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs/resources/contact_group
 resource "statuscake_contact_group" "ops_contact_group" {
-  name     = "${terraform.workspace}-ops"
-  ping_url = "https://${var.registered_domain_name}"
+  name = "${terraform.workspace}-ops"
 
   email_addresses = [
     var.ops_email_address,
@@ -22,7 +21,7 @@ resource "statuscake_contact_group" "ops_contact_group" {
 resource "statuscake_uptime_check" "uptime_check" {
   name           = "${terraform.workspace}-uptime-check"
   check_interval = 300
-  confirmation   = 1
+  confirmation   = 2
   paused         = true
 
   contact_groups = [
@@ -42,10 +41,6 @@ resource "statuscake_uptime_check" "uptime_check" {
   monitored_resource {
     address = "https://${var.registered_domain_name}"
   }
-
-  regions = [
-    "chicago",
-  ]
 }
 
 resource "statuscake_ssl_check" "ssl_check" {
