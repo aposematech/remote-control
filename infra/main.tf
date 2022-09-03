@@ -44,16 +44,3 @@ module "static_website" {
   registered_domain_name = "djfav.ninja"
   default_page           = "index.html"
 }
-
-module "site_monitor" {
-  source                       = "./modules/site-monitor"
-  aws_region                   = var.aws_region
-  aws_account_number           = var.aws_account_number
-  canary_name                  = "djfav-dot-ninja"
-  canary_script_bucket_name    = "djfav.ninja-canary-script"
-  canary_s3_key                = "canary.zip"
-  canary_artifacts_bucket_name = "djfav.ninja-canary-artifacts"
-  canary_schedule_expression   = "rate(1 hour)"
-  canary_handler               = "canary.handler"
-  canary_runtime_version       = "syn-python-selenium-1.3"
-}
