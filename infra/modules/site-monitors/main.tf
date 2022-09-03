@@ -19,7 +19,7 @@ resource "statuscake_contact_group" "ops_contact_group" {
 
 # https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs/resources/uptime_check
 resource "statuscake_uptime_check" "uptime_check" {
-  name           = "${terraform.workspace}-uptime-check"
+  name           = var.registered_domain_name
   check_interval = 300
   confirmation   = 3
   trigger_rate   = 5
