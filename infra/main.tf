@@ -45,3 +45,9 @@ module "static_website" {
   registered_domain_name = "djfav.ninja"
   default_page           = "index.html"
 }
+
+module "site_monitor" {
+  source                       = "./modules/site-monitor"
+  canary_script_bucket_name    = "djfav.ninja-canary-script"
+  canary_artifacts_bucket_name = "djfav.ninja-canary-artifacts"
+}
