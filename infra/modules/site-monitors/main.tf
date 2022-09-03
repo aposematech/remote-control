@@ -42,12 +42,6 @@ resource "statuscake_uptime_check" "uptime_check" {
   monitored_resource {
     address = "https://${var.registered_domain_name}"
   }
-
-  regions = [
-    "california",
-    "chicago",
-    "new-york",
-  ]
 }
 
 resource "statuscake_ssl_check" "ssl_check" {
