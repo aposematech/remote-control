@@ -105,4 +105,5 @@ resource "aws_route53_record" "status_page_record" {
   name    = "status"
   type    = "CNAME"
   records = ["${betteruptime_status_page.status_page.subdomain}.betteruptime.com"]
+  ttl     = 60
 }
