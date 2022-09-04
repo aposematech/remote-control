@@ -94,3 +94,11 @@ resource "betteruptime_status_page" "status_page" {
   subdomain    = var.betteruptime_subdomain
   timezone     = "Central Time (US & Canada)"
 }
+
+# https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs/resources/betteruptime_status_page_resource
+resource "betteruptime_status_page_resource" "status_page_resource" {
+  public_name    = var.registered_domain_name
+  resource_id    = betteruptime_monitor.monitor.id
+  resource_type  = "Monitor"
+  status_page_id = betteruptime_status_page.status_page.id
+}
