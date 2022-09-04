@@ -5,6 +5,10 @@ terraform {
       source  = "StatusCakeDev/statuscake"
       version = "~> 2.0.0"
     }
+    betteruptime = {
+      source  = "BetterStackHQ/better-uptime"
+      version = "~> 0.3.0"
+    }
   }
 }
 
@@ -64,4 +68,21 @@ resource "statuscake_ssl_check" "ssl_check" {
   monitored_resource {
     address = "https://${var.registered_domain_name}"
   }
+}
+
+# https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs/resources/betteruptime_monitor
+resource "betteruptime_monitor" "monitor" {
+  monitor_type = "status"
+  url          = "https://${var.registered_domain_name}"
+  email        = true
+
+  check_frequency     = 5
+  request_timeout     = 15
+  confirmation_period = 3
+  recovery_period     = 3
+  regions             = ["us", "eu", "as", "au"]
+
+  domain_expiration = 30
+  verify_ssl        = true
+  ssl_expiration    = 30
 }

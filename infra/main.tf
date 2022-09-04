@@ -21,6 +21,10 @@ terraform {
       source  = "StatusCakeDev/statuscake"
       version = "~> 2.0.0"
     }
+    betteruptime = {
+      source  = "BetterStackHQ/better-uptime"
+      version = "~> 0.3.0"
+    }
   }
 }
 
@@ -35,6 +39,11 @@ provider "aws" {
 # https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs
 provider "statuscake" {
   api_token = var.statuscake_api_token
+}
+
+# https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs
+provider "betteruptime" {
+  api_token = var.betteruptime_api_token
 }
 
 module "git_repo" {

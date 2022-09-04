@@ -31,6 +31,13 @@ variable "statuscake_api_token" {
   sensitive   = true
 }
 
+variable "betteruptime_api_token" {
+  description = "Better Uptime API Token"
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
 variable "ops_email_address" {
   description = "Operations Team Email Address"
   type        = string
