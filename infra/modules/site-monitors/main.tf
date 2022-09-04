@@ -93,10 +93,11 @@ resource "betteruptime_monitor" "monitor" {
 
 # https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs/resources/betteruptime_status_page
 resource "betteruptime_status_page" "status_page" {
-  company_name = var.registered_domain_name
-  company_url  = "https://${var.registered_domain_name}"
-  subdomain    = var.status_page_subdomain
-  timezone     = "Central Time (US & Canada)"
+  company_name  = var.registered_domain_name
+  company_url   = "https://${var.registered_domain_name}"
+  subdomain     = var.betteruptime_subdomain
+  timezone      = "Central Time (US & Canada)"
+  custom_domain = "${var.custom_status_page_subdomain}.${var.registered_domain_name}"
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
