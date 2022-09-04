@@ -75,6 +75,7 @@ resource "betteruptime_monitor" "monitor" {
   monitor_type = "status"
   url          = "https://${var.registered_domain_name}"
   email        = true
+  paused       = false
 
   check_frequency     = 5
   request_timeout     = 15
