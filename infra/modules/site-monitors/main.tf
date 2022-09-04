@@ -91,18 +91,18 @@ resource "betteruptime_monitor" "monitor" {
   ssl_expiration    = 30
 }
 
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
-resource "aws_route53_record" "cloudfront_distribution_record" {
-  zone_id = var.hosted_zone_id
-  name    = "status"
-  type    = "CNAME"
-  records = ["${var.status_page_subdomain}.betteruptime.com"]
-}
-
 # https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs/resources/betteruptime_status_page
 resource "betteruptime_status_page" "status_page" {
   company_name = var.registered_domain_name
   company_url  = "https://${var.registered_domain_name}"
   subdomain    = var.status_page_subdomain
   timezone     = "Central Time (US & Canada)"
+}
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
+resource "aws_route53_record" "status_page_record" {
+  zone_id = var.hosted_zone_id
+  name    = "status"
+  type    = "CNAME"
+  records = ["${betteruptime_status_page.status_page.subdomain}.betteruptime.com"]
 }
