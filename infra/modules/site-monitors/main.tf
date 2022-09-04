@@ -79,7 +79,6 @@ resource "betteruptime_monitor" "monitor" {
   check_frequency     = 5
   request_timeout     = 15
   confirmation_period = 3
-  recovery_period     = 3
   regions             = ["us", "eu", "as", "au"]
 
   domain_expiration = 30
