@@ -27,9 +27,3 @@ variable "betteruptime_subdomain" {
   type        = string
   default     = ""
 }
-
-variable "custom_status_page_subdomain" {
-  description = "Custom Status Page Subdomain"
-  type        = string
-  default     = ""
-}

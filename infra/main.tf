@@ -64,10 +64,8 @@ module "static_website" {
 }
 
 module "site_monitors" {
-  source                       = "./modules/site-monitors"
-  registered_domain_name       = module.static_website.registered_domain_name
-  hosted_zone_id               = module.static_website.hosted_zone_id
-  ops_email_address            = var.ops_email_address
-  betteruptime_subdomain       = "djfav"
-  custom_status_page_subdomain = "status"
+  source                 = "./modules/site-monitors"
+  registered_domain_name = module.static_website.registered_domain_name
+  ops_email_address      = var.ops_email_address
+  betteruptime_subdomain = "djfav"
 }
