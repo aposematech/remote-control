@@ -1,3 +1,15 @@
+variable "registered_domain_name" {
+  description = "Route 53 Registered Domain Name"
+  type        = string
+  default     = ""
+}
+
+variable "default_page" {
+  description = "Static Website Default Page"
+  type        = string
+  default     = ""
+}
+
 variable "ops_email_address" {
   description = "Operations Team Email Address"
   type        = string
@@ -42,6 +54,12 @@ variable "betteruptime_api_token" {
   type        = string
   default     = ""
   sensitive   = true
+}
+
+variable "betteruptime_subdomain" {
+  description = "Better Uptime Status Page Subdomain"
+  type        = string
+  default     = ""
 }
 
 variable "checkly_account_id" {

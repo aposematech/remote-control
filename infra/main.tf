@@ -70,7 +70,7 @@ provider "newrelic" {
 module "git_repo" {
   source                  = "./modules/git-repo"
   git_repo_description    = "Static website demo"
-  git_repo_homepage_url   = "https://djfav.ninja"
+  git_repo_homepage_url   = "https://${var.registered_domain_name}"
   git_repo_visibility     = "public"
   aws_access_key_id_name  = "AWS_ACCESS_KEY_ID"
   aws_access_key_id_value = var.aws_access_key_id
@@ -80,8 +80,8 @@ module "git_repo" {
 
 module "static_website" {
   source                 = "./modules/static-website"
-  registered_domain_name = "djfav.ninja"
-  default_page           = "index.html"
+  registered_domain_name = var.registered_domain_name
+  default_page           = var.default_page
 }
 
 module "site_monitors" {
@@ -89,5 +89,5 @@ module "site_monitors" {
   ops_email_address      = var.ops_email_address
   aws_region             = var.aws_region
   registered_domain_name = module.static_website.registered_domain_name
-  betteruptime_subdomain = "djfav"
+  betteruptime_subdomain = var.betteruptime_subdomain
 }
