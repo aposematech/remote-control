@@ -120,9 +120,9 @@ resource "betteruptime_status_page_resource" "status_page_resource" {
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "status_page_record" {
   zone_id = var.hosted_zone_id
-  name    = "status"
+  name    = var.custom_status_page_subdomain
   type    = "CNAME"
-  records = ["${betteruptime_status_page.status_page.subdomain}.betteruptime.com"]
+  records = ["statuspage.betteruptime.com"]
   ttl     = 60
 }
 
