@@ -112,7 +112,7 @@ resource "betteruptime_status_page_resource" "status_page_resource" {
 resource "checkly_check" "browser_check" {
   name                      = var.registered_domain_name
   type                      = "BROWSER"
-  activated                 = false
+  activated                 = true
   should_fail               = false
   frequency                 = 10
   double_check              = true
