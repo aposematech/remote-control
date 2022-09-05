@@ -1,8 +1,12 @@
 # demo-site
 
+### Static Website
+
+- [djfav.ninja](https://djfav.ninja)
+
 ### Status Page
 
-- [djfav.betteruptime.com](https://djfav.betteruptime.com/)
+- [djfav.betteruptime.com](https://djfav.betteruptime.com)
 
 ### CodePen
 
