@@ -24,3 +24,4 @@
 - [StatusCake](https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs)
 - [Better Uptime](https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs)
 - [Checkly](https://registry.terraform.io/providers/checkly/checkly/latest/docs)
+- [New Relic](https://registry.terraform.io/providers/newrelic/newrelic/latest/docs)
