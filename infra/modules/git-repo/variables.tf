@@ -1,3 +1,9 @@
+variable "git_repo_name" {
+  description = "GitHub Name"
+  type        = string
+  default     = ""
+}
+
 variable "git_repo_description" {
   description = "GitHub Description"
   type        = string

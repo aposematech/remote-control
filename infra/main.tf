@@ -73,6 +73,7 @@ provider "newrelic" {
 
 module "git_repo" {
   source                  = "./modules/git-repo"
+  git_repo_name           = terraform.workspace
   git_repo_description    = var.git_repo_description
   git_repo_homepage_url   = "https://${var.registered_domain_name}"
   git_repo_visibility     = var.git_repo_visibility
