@@ -13,6 +13,10 @@ terraform {
       source  = "checkly/checkly"
       version = "~> 1.4.0"
     }
+    newrelic = {
+      source  = "newrelic/newrelic"
+      version = "~> 3.1.0"
+    }
   }
 }
 
@@ -142,4 +146,26 @@ async function run () {
 }
 run()
 EOT
+}
+
+# https://registry.terraform.io/providers/newrelic/newrelic/latest/docs/resources/synthetics_monitor
+resource "newrelic_synthetics_monitor" "monitor" {
+  name              = var.registered_domain_name
+  type              = "SIMPLE"
+  uri               = "https://${var.registered_domain_name}"
+  validation_string = var.registered_domain_name
+  verify_ssl        = true
+  locations_public  = ["AWS_US_EAST_1"]
+  period            = "EVERY_15_MINUTES"
+  status            = "DISABLED"
+}
+
+# https://registry.terraform.io/providers/newrelic/newrelic/latest/docs/resources/synthetics_monitor_cert_check
+resource "newrelic_synthetics_cert_check_monitor" "cert_check_monitor" {
+  name                   = var.registered_domain_name
+  domain                 = "https://${var.registered_domain_name}"
+  locations_public       = ["AWS_US_EAST_1"]
+  certificate_expiration = "30"
+  period                 = "EVERY_DAY"
+  status                 = "ENABLED"
 }

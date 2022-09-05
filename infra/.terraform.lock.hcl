@@ -85,6 +85,31 @@ provider "registry.terraform.io/integrations/github" {
   ]
 }
 
+provider "registry.terraform.io/newrelic/newrelic" {
+  version     = "3.1.0"
+  constraints = "~> 3.1.0"
+  hashes = [
+    "h1:4dzCZPIX20gYe5ep0CzK9OY7orAoz9w9z77nT/yqDd8=",
+    "zh:07ceb2b0eb57206d9259214216493e112d072882e0d0174421bfa267a9461e9c",
+    "zh:092a2f85fcd150ea7e8a5c09a317ee8b084c119634d16c185dd751f60bce4033",
+    "zh:0c03f3041fb0f7b8c1f6c536307db5772f44a3077d202b54f5f25df207d30761",
+    "zh:24cc46db3dfd04f2d35262f5a290d39e120c19c5fd0c159d469d89c896596037",
+    "zh:27d6558291d328bb3e555d9a35d6390182a1501257ec62b02b8704490fd1c98e",
+    "zh:33fd3c51bdb9bb176a0c878828a57625b1e49810c35074a4eb39deb8bc3ec188",
+    "zh:4091e8c02c954777b2a16ee1827044a17982f070265279c744e03eddeb744290",
+    "zh:9b17fe941408406b281ee2184ad7da6e2ae4ded91e6508327e52bfc54f856f5f",
+    "zh:a1e4229884d4ce3c7edcb0e9a97855f9a9197c3ed83406a7fda42d15962becf1",
+    "zh:af3acb570aa7b65e7a6e0c5e6ab2d1994160587075f5f34c7bbc924829e181e5",
+    "zh:af83cd5e5b545a28d9b85eef9636889f51bc2abff5de19fbd515e97da9d60311",
+    "zh:b0a26523e89f605db87461273780edcbd4ba60601732ad52925b9983eafab742",
+    "zh:b47f76c169f4c4c0cc2f29d71e092a2341d696d4bf75e47d607da4f6866fdbc3",
+    "zh:c46071906701f879bc640c5bc6d230a427da40e57c5e95a7fdbc9fa8f51ad0ad",
+    "zh:d92609c642b986f1906c762c99952c2fad3376d4d83fcea3cefa017659dddce6",
+    "zh:d9c036b829b55d6a033a530a02fdc28fbf357fdf6d89f233440fa477df6f769f",
+    "zh:f304af18b65a3c9b3298a875bc7814dcc7bd44063ea4b86a95f5fa76873055cb",
+  ]
+}
+
 provider "registry.terraform.io/statuscakedev/statuscake" {
   version     = "2.0.3"
   constraints = "~> 2.0.0"

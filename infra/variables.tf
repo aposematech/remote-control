@@ -56,3 +56,22 @@ variable "checkly_api_key" {
   default     = ""
   sensitive   = true
 }
+
+variable "new_relic_account_id" {
+  description = "New Relic Account ID"
+  type        = string
+  default     = ""
+}
+
+variable "new_relic_api_key" {
+  description = "New Relic API Key"
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
+variable "rew_relic_region" {
+  description = "New Relic Region"
+  type        = string
+  default     = ""
+}

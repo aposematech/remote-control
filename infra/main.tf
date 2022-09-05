@@ -29,6 +29,10 @@ terraform {
       source  = "checkly/checkly"
       version = "~> 1.4.0"
     }
+    newrelic = {
+      source  = "newrelic/newrelic"
+      version = "~> 3.1.0"
+    }
   }
 }
 
@@ -54,6 +58,13 @@ provider "betteruptime" {
 provider "checkly" {
   api_key    = var.checkly_api_key
   account_id = var.checkly_account_id
+}
+
+# https://registry.terraform.io/providers/newrelic/newrelic/latest/docs
+provider "newrelic" {
+  account_id = var.new_relic_account_id
+  api_key    = var.new_relic_api_key
+  region     = var.rew_relic_region
 }
 
 module "git_repo" {
