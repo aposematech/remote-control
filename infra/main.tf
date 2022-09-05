@@ -89,9 +89,11 @@ module "static_website" {
 }
 
 module "site_monitors" {
-  source                 = "./modules/site-monitors"
-  ops_email_address      = var.ops_email_address
-  aws_region             = var.aws_region
-  registered_domain_name = module.static_website.registered_domain_name
-  betteruptime_subdomain = var.betteruptime_subdomain
+  source                       = "./modules/site-monitors"
+  ops_email_address            = var.ops_email_address
+  aws_region                   = var.aws_region
+  registered_domain_name       = module.static_website.registered_domain_name
+  hosted_zone_id               = module.static_website.hosted_zone_id
+  betteruptime_subdomain       = var.betteruptime_subdomain
+  custom_status_page_subdomain = var.custom_status_page_subdomain
 }
