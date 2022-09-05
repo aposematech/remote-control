@@ -37,11 +37,15 @@ terraform {
 }
 
 # https://registry.terraform.io/providers/integrations/github/latest/docs
-provider "github" {}
+provider "github" {
+  # export GITHUB_TOKEN
+}
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 provider "aws" {
   region = var.aws_region
+  # export AWS_ACCESS_KEY_ID
+  # export AWS_SECRET_ACCESS_KEY
 }
 
 # https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs
