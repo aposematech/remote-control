@@ -163,7 +163,7 @@ resource "newrelic_synthetics_monitor" "monitor" {
 # https://registry.terraform.io/providers/newrelic/newrelic/latest/docs/resources/synthetics_monitor_cert_check
 resource "newrelic_synthetics_cert_check_monitor" "cert_check_monitor" {
   name                   = "${var.registered_domain_name}-cert-check-monitor"
-  domain                 = "https://${var.registered_domain_name}"
+  domain                 = var.registered_domain_name
   locations_public       = ["US_EAST_1"]
   certificate_expiration = "30"
   period                 = "EVERY_DAY"
