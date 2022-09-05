@@ -1,3 +1,15 @@
+variable "git_repo_description" {
+  description = "GitHub Repo Description"
+  type        = string
+  default     = ""
+}
+
+variable "git_repo_visibility" {
+  description = "GitHub Repo Visibility"
+  type        = string
+  default     = ""
+}
+
 variable "registered_domain_name" {
   description = "Route 53 Registered Domain Name"
   type        = string
