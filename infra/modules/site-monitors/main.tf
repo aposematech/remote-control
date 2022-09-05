@@ -157,7 +157,7 @@ resource "newrelic_synthetics_monitor" "monitor" {
   verify_ssl        = true
   locations_public  = ["AWS_US_EAST_1"]
   period            = "EVERY_15_MINUTES"
-  status            = "DISABLED"
+  status            = "ENABLED"
 }
 
 # https://registry.terraform.io/providers/newrelic/newrelic/latest/docs/resources/synthetics_monitor_cert_check
