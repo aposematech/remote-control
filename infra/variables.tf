@@ -1,3 +1,9 @@
+variable "ops_email_address" {
+  description = "Operations Team Email Address"
+  type        = string
+  default     = ""
+}
+
 variable "aws_region" {
   description = "AWS Region"
   type        = string
@@ -38,8 +44,15 @@ variable "betteruptime_api_token" {
   sensitive   = true
 }
 
-variable "ops_email_address" {
-  description = "Operations Team Email Address"
+variable "checkly_account_id" {
+  description = "Checkly Account ID"
   type        = string
   default     = ""
+}
+
+variable "checkly_api_key" {
+  description = "Checkly API Key"
+  type        = string
+  default     = ""
+  sensitive   = true
 }

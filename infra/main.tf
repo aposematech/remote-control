@@ -25,6 +25,10 @@ terraform {
       source  = "BetterStackHQ/better-uptime"
       version = "~> 0.3.0"
     }
+    checkly = {
+      source  = "checkly/checkly"
+      version = "~> 1.4.0"
+    }
   }
 }
 
@@ -46,6 +50,12 @@ provider "betteruptime" {
   api_token = var.betteruptime_api_token
 }
 
+# https://registry.terraform.io/providers/checkly/checkly/latest/docs
+provider "checkly" {
+  api_key    = var.checkly_api_key
+  account_id = var.checkly_account_id
+}
+
 module "git_repo" {
   source                  = "./modules/git-repo"
   git_repo_description    = "Static website demo"
@@ -65,7 +75,8 @@ module "static_website" {
 
 module "site_monitors" {
   source                 = "./modules/site-monitors"
-  registered_domain_name = module.static_website.registered_domain_name
   ops_email_address      = var.ops_email_address
+  aws_region             = var.aws_region
+  registered_domain_name = module.static_website.registered_domain_name
   betteruptime_subdomain = "djfav"
 }

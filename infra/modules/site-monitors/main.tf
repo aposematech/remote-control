@@ -9,6 +9,10 @@ terraform {
       source  = "BetterStackHQ/better-uptime"
       version = "~> 0.3.0"
     }
+    checkly = {
+      source  = "checkly/checkly"
+      version = "~> 1.4.0"
+    }
   }
 }
 
@@ -102,4 +106,36 @@ resource "betteruptime_status_page_resource" "status_page_resource" {
   resource_type  = "Monitor"
   status_page_id = betteruptime_status_page.status_page.id
   history        = true
+}
+
+# https://registry.terraform.io/providers/checkly/checkly/latest/docs/resources/check
+resource "checkly_check" "browser_check" {
+  name                      = var.registered_domain_name
+  type                      = "BROWSER"
+  activated                 = false
+  should_fail               = false
+  frequency                 = 10
+  double_check              = true
+  use_global_alert_settings = true
+  locations = [
+    var.aws_region
+  ]
+
+  runtime_id = "2022.02"
+
+  script = <<EOT
+const browser = await chromium.launch()
+const page = await browser.newPage()
+
+const response = await page.goto('https://${var.registered_domain_name}')
+
+if (response.status() > 399) {
+  throw new Error(`Failed with response code $${response.status()}`)
+}
+
+await page.screenshot({ path: 'screenshot.jpg' })
+
+await page.close()
+await browser.close()
+EOT
 }
