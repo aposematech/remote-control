@@ -32,3 +32,15 @@ resource "github_actions_secret" "git_secret_aws_access_key" {
   secret_name     = var.aws_access_key_name
   plaintext_value = var.aws_access_key_value
 }
+
+resource "github_actions_secret" "git_secret_aws_region" {
+  repository      = var.git_repo_name
+  secret_name     = var.aws_region_name
+  plaintext_value = var.aws_region_value
+}
+
+resource "github_actions_secret" "git_secret_bucket" {
+  repository      = var.git_repo_name
+  secret_name     = var.bucket_name
+  plaintext_value = var.bucket_value
+}
