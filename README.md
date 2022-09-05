@@ -6,7 +6,7 @@
 
 ### Status Page
 
-- [djfav.betteruptime.com](https://djfav.betteruptime.com)
+- [status.djfav.ninja](https://status.djfav.ninja)
 
 ### CodePen
 
