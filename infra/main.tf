@@ -17,10 +17,6 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.28.0"
     }
-    statuscake = {
-      source  = "StatusCakeDev/statuscake"
-      version = "~> 2.0.0"
-    }
     betteruptime = {
       source  = "BetterStackHQ/better-uptime"
       version = "~> 0.3.0"
@@ -28,6 +24,10 @@ terraform {
     checkly = {
       source  = "checkly/checkly"
       version = "~> 1.4.0"
+    }
+    statuscake = {
+      source  = "StatusCakeDev/statuscake"
+      version = "~> 2.0.0"
     }
     newrelic = {
       source  = "newrelic/newrelic"
@@ -48,11 +48,6 @@ provider "aws" {
   # export AWS_SECRET_ACCESS_KEY
 }
 
-# https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs
-provider "statuscake" {
-  api_token = var.statuscake_api_token
-}
-
 # https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs
 provider "betteruptime" {
   api_token = var.betteruptime_api_token
@@ -62,6 +57,11 @@ provider "betteruptime" {
 provider "checkly" {
   api_key    = var.checkly_api_key
   account_id = var.checkly_account_id
+}
+
+# https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs
+provider "statuscake" {
+  api_token = var.statuscake_api_token
 }
 
 # https://registry.terraform.io/providers/newrelic/newrelic/latest/docs
@@ -95,8 +95,8 @@ module "static_website" {
 
 module "site_monitors" {
   source                       = "./modules/site-monitors"
-  ops_email_address            = var.ops_email_address
   aws_region                   = var.aws_region
+  ops_email_address            = var.ops_email_address
   registered_domain_name       = module.static_website.registered_domain_name
   hosted_zone_id               = module.static_website.hosted_zone_id
   betteruptime_subdomain       = var.betteruptime_subdomain

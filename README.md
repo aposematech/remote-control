@@ -21,7 +21,7 @@
 
 - [GitHub](https://registry.terraform.io/providers/integrations/github/latest/docs)
 - [AWS](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-- [StatusCake](https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs)
 - [Better Uptime](https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs)
 - [Checkly](https://registry.terraform.io/providers/checkly/checkly/latest/docs)
+- [StatusCake](https://registry.terraform.io/providers/StatusCakeDev/statuscake/latest/docs)
 - [New Relic](https://registry.terraform.io/providers/newrelic/newrelic/latest/docs)

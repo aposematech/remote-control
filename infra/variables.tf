@@ -10,24 +10,6 @@ variable "git_repo_visibility" {
   default     = ""
 }
 
-variable "registered_domain_name" {
-  description = "Route 53 Registered Domain Name"
-  type        = string
-  default     = ""
-}
-
-variable "default_page" {
-  description = "Static Website Default Page"
-  type        = string
-  default     = ""
-}
-
-variable "ops_email_address" {
-  description = "Operations Team Email Address"
-  type        = string
-  default     = ""
-}
-
 variable "aws_region" {
   description = "AWS Region"
   type        = string
@@ -54,11 +36,16 @@ variable "aws_access_key" {
   sensitive   = true
 }
 
-variable "statuscake_api_token" {
-  description = "StatusCake API Token"
+variable "registered_domain_name" {
+  description = "Route 53 Registered Domain Name"
   type        = string
   default     = ""
-  sensitive   = true
+}
+
+variable "default_page" {
+  description = "Static Website Default Page"
+  type        = string
+  default     = ""
 }
 
 variable "betteruptime_api_token" {
@@ -91,6 +78,19 @@ variable "checkly_api_key" {
   type        = string
   default     = ""
   sensitive   = true
+}
+
+variable "statuscake_api_token" {
+  description = "StatusCake API Token"
+  type        = string
+  default     = ""
+  sensitive   = true
+}
+
+variable "ops_email_address" {
+  description = "Operations Team Email Address"
+  type        = string
+  default     = ""
 }
 
 variable "new_relic_account_id" {
