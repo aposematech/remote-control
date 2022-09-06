@@ -1,4 +1,6 @@
 // https://codepen.io/djfav/pen/kBRQYJ
+var window;
+var document;
 var canvas;
 var context;
 var width;
@@ -27,8 +29,8 @@ function draw() {
 }
 
 window.onload = function () {
-    canvas = document.getElementById('canvas');
-    context = canvas.getContext('2d');
+    canvas = document.getElementById("canvas");
+    context = canvas.getContext("2d");
     width = window.innerWidth;
     height = window.innerHeight;
     canvas.width = width;
