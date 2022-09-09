@@ -71,8 +71,8 @@ provider "newrelic" {
   region     = var.rew_relic_region
 }
 
-module "git_repo" {
-  source                  = "./modules/git-repo"
+module "repo" {
+  source                  = "./modules/repo"
   git_repo_name           = terraform.workspace
   git_repo_description    = var.git_repo_description
   git_repo_homepage_url   = "https://${var.registered_domain_name}"
@@ -87,18 +87,18 @@ module "git_repo" {
   bucket_value            = var.registered_domain_name
 }
 
-module "static_website" {
-  source                 = "./modules/static-website"
+module "website" {
+  source                 = "./modules/website"
   registered_domain_name = var.registered_domain_name
   default_page           = var.default_page
 }
 
-module "site_monitors" {
-  source                       = "./modules/site-monitors"
+module "monitors" {
+  source                       = "./modules/monitors"
   aws_region                   = var.aws_region
   ops_email_address            = var.ops_email_address
-  registered_domain_name       = module.static_website.registered_domain_name
-  hosted_zone_id               = module.static_website.hosted_zone_id
+  registered_domain_name       = module.website.registered_domain_name
+  hosted_zone_id               = module.website.hosted_zone_id
   betteruptime_subdomain       = var.betteruptime_subdomain
   custom_status_page_subdomain = var.custom_status_page_subdomain
 }
