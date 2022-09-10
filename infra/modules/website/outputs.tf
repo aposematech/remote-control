@@ -4,6 +4,6 @@ output "registered_domain_name" {
 }
 
 output "hosted_zone_id" {
-  value       = aws_route53_zone.zone.zone_id
+  value       = data.aws_route53_zone.zone.zone_id
   description = "Route 53 Hosted Zone ID"
 }

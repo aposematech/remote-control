@@ -13,8 +13,8 @@ resource "aws_route53domains_registered_domain" "registered_domain" {
   domain_name = var.registered_domain_name
 }
 
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone
-resource "aws_route53_zone" "zone" {
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone
+data "aws_route53_zone" "zone" {
   name = var.registered_domain_name
 }
 
@@ -97,7 +97,7 @@ resource "aws_route53_record" "certificate_validation_record" {
   records         = [each.value.record]
   ttl             = 60
   type            = each.value.type
-  zone_id         = aws_route53_zone.zone.zone_id
+  zone_id         = data.aws_route53_zone.zone.zone_id
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate_validation
@@ -151,7 +151,7 @@ resource "aws_cloudfront_distribution" "cloudfront_distribution" {
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
 resource "aws_route53_record" "cloudfront_distribution_record" {
-  zone_id = aws_route53_zone.zone.zone_id
+  zone_id = data.aws_route53_zone.zone.zone_id
   name    = var.registered_domain_name
   type    = "A"
 
