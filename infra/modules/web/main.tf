@@ -8,11 +8,6 @@ terraform {
   }
 }
 
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53domains_registered_domain
-resource "aws_route53domains_registered_domain" "registered_domain" {
-  domain_name = var.registered_domain_name
-}
-
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone
 data "aws_route53_zone" "zone" {
   name = var.registered_domain_name
