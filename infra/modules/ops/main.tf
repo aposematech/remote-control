@@ -7,15 +7,15 @@ terraform {
     }
     betteruptime = {
       source  = "BetterStackHQ/better-uptime"
-      version = "~> 0.3.0"
+      version = "~> 0.3.12"
     }
     checkly = {
       source  = "checkly/checkly"
-      version = "~> 1.4.0"
+      version = "~> 1.4.3"
     }
     statuscake = {
       source  = "StatusCakeDev/statuscake"
-      version = "~> 2.0.0"
+      version = "~> 2.0.3"
     }
     newrelic = {
       source  = "newrelic/newrelic"
