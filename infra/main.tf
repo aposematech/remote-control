@@ -102,6 +102,7 @@ module "web" {
 
 module "ops" {
   source                       = "./modules/ops"
+  sns_topic_name               = module.git.git_repo_name
   aws_region                   = var.aws_region
   ops_email_address            = var.ops_email_address
   registered_domain_name       = module.web.registered_domain_name

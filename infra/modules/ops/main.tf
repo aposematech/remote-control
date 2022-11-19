@@ -24,6 +24,17 @@ terraform {
   }
 }
 
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic
+resource "aws_sns_topic" "topic" {
+  name = var.sns_topic_name
+}
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_policy
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/synthetics_canary
+
 # https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs/resources/betteruptime_monitor
 resource "betteruptime_monitor" "monitor" {
   monitor_type = "status"
