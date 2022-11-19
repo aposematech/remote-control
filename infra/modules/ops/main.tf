@@ -37,8 +37,12 @@ resource "aws_sns_topic_subscription" "topic_subscription" {
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
-resource "aws_s3_bucket" "canary_bucket" {
-  bucket = "${var.registered_domain_name}-canary"
+resource "aws_s3_bucket" "canary_artifacts_bucket" {
+  bucket = "${var.registered_domain_name}-canary-artifacts"
+}
+
+resource "aws_s3_bucket" "canary_scripts_bucket" {
+  bucket = "${var.registered_domain_name}-canary-scripts"
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
@@ -50,7 +54,8 @@ data "aws_iam_policy_document" "canary_role_permissions_policy_document" {
       "s3:GetObject",
     ]
     resources = [
-      "${aws_s3_bucket.canary_bucket.arn}/*"
+      "${aws_s3_bucket.canary_artifacts_bucket.arn}/*",
+      "${aws_s3_bucket.canary_scripts_bucket.arn}/*",
     ]
   }
   statement {
@@ -59,7 +64,7 @@ data "aws_iam_policy_document" "canary_role_permissions_policy_document" {
       "s3:GetBucketLocation",
     ]
     resources = [
-      aws_s3_bucket.canary_bucket.arn
+      aws_s3_bucket.canary_artifacts_bucket.arn,
     ]
   }
   statement {
@@ -135,25 +140,25 @@ resource "aws_iam_role" "canary_role" {
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/synthetics_canary
-resource "aws_synthetics_canary" "canary" {
-  name                 = var.sns_topic_name
-  artifact_s3_location = "s3://${aws_s3_bucket.canary_bucket.bucket}"
-  execution_role_arn   = aws_iam_role.canary_role.arn
-  handler              = "canary.handler"
-  zip_file             = "canary.zip"
-  runtime_version      = "syn-python-selenium-1.3"
-  delete_lambda        = true
+# resource "aws_synthetics_canary" "canary" {
+#   name                 = var.sns_topic_name
+#   artifact_s3_location = "s3://${aws_s3_bucket.canary_bucket.bucket}"
+#   execution_role_arn   = aws_iam_role.canary_role.arn
+#   handler              = "canary.handler"
+#   zip_file             = "canary.zip"
+#   runtime_version      = "syn-python-selenium-1.3"
+#   delete_lambda        = true
 
-  run_config {
-    environment_variables = {
-      URL = "https://${var.registered_domain_name}"
-    }
-  }
+#   run_config {
+#     environment_variables = {
+#       URL = "https://${var.registered_domain_name}"
+#     }
+#   }
 
-  schedule {
-    expression = var.canary_cron
-  }
-}
+#   schedule {
+#     expression = var.canary_cron
+#   }
+# }
 
 # https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs/resources/betteruptime_monitor
 resource "betteruptime_monitor" "monitor" {
