@@ -148,25 +148,26 @@ resource "aws_iam_role" "canary_role" {
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/synthetics_canary
-# resource "aws_synthetics_canary" "canary" {
-#   name                 = var.sns_topic_name
-#   artifact_s3_location = "s3://${aws_s3_bucket.canary_bucket.bucket}"
-#   execution_role_arn   = aws_iam_role.canary_role.arn
-#   handler              = "canary.handler"
-#   zip_file             = "canary.zip"
-#   runtime_version      = "syn-python-selenium-1.3"
-#   delete_lambda        = true
+resource "aws_synthetics_canary" "canary" {
+  name                 = var.sns_topic_name
+  artifact_s3_location = "s3://${aws_s3_bucket.canary_artifacts_bucket.id}"
+  execution_role_arn   = aws_iam_role.canary_role.arn
+  s3_bucket            = aws_s3_bucket.canary_scripts_bucket.id
+  s3_key               = "canary.zip"
+  handler              = "canary.handler"
+  runtime_version      = "syn-python-selenium-1.3"
+  delete_lambda        = true
 
-#   run_config {
-#     environment_variables = {
-#       URL = "https://${var.registered_domain_name}"
-#     }
-#   }
+  run_config {
+    environment_variables = {
+      URL = "https://${var.registered_domain_name}"
+    }
+  }
 
-#   schedule {
-#     expression = var.canary_cron
-#   }
-# }
+  schedule {
+    expression = var.canary_cron
+  }
+}
 
 # https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs/resources/betteruptime_monitor
 resource "betteruptime_monitor" "monitor" {
