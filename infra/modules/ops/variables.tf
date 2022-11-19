@@ -3,10 +3,20 @@ variable "sns_topic_name" {
   type        = string
 }
 
+variable "ops_email_address" {
+  description = "Operations Email Address"
+  type        = string
+}
+
 variable "registered_domain_name" {
   description = "Route 53 Registered Domain Name"
   type        = string
 }
+
+# variable "canary_cron" {
+#   description = "Canary Cron Expression"
+#   type        = string
+# }
 
 variable "betteruptime_subdomain" {
   description = "Better Uptime Status Page Subdomain"
@@ -25,11 +35,6 @@ variable "hosted_zone_id" {
 
 variable "aws_region" {
   description = "AWS Region"
-  type        = string
-}
-
-variable "ops_email_address" {
-  description = "Operations Email Address"
   type        = string
 }
 

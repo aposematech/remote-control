@@ -36,11 +36,25 @@ resource "aws_sns_topic_subscription" "topic_subscription" {
   endpoint  = var.ops_email_address
 }
 
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
-
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_policy
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
+resource "aws_s3_bucket" "canary_bucket" {
+  bucket = "${var.registered_domain_name}-canary"
+}
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/synthetics_canary
+# resource "aws_synthetics_canary" "canary" {
+#   name                 = var.sns_topic_name
+#   artifact_s3_location = "s3://${aws_s3_bucket.canary_bucket.bucket}"
+#   execution_role_arn   = "some-role"
+#   handler              = "exports.handler"
+#   zip_file             = "test-fixtures/lambdatest.zip"
+#   runtime_version      = "syn-python-selenium-1.3"
+#   delete_lambda = true
+
+#   schedule {
+#     expression = var.canary_cron
+#   }
+# }
 
 # https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs/resources/betteruptime_monitor
 resource "betteruptime_monitor" "monitor" {
