@@ -157,6 +157,7 @@ resource "aws_synthetics_canary" "canary" {
   handler              = "canary.handler"
   runtime_version      = "syn-python-selenium-1.3"
   delete_lambda        = true
+  start_canary         = true
 
   run_config {
     environment_variables = {
