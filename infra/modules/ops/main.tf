@@ -50,12 +50,20 @@ data "aws_iam_policy_document" "canary_role_permissions_policy_document" {
   statement {
     effect = "Allow"
     actions = [
+      "s3:GetObject",
+    ]
+    resources = [
+      "${aws_s3_bucket.canary_scripts_bucket.arn}/*",
+    ]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
       "s3:PutObject",
       "s3:GetObject",
     ]
     resources = [
       "${aws_s3_bucket.canary_artifacts_bucket.arn}/*",
-      "${aws_s3_bucket.canary_scripts_bucket.arn}/*",
     ]
   }
   statement {
