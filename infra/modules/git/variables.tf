@@ -61,14 +61,3 @@ variable "website_bucket_value" {
   type        = string
   sensitive   = true
 }
-
-variable "canary_scripts_bucket_name" {
-  description = "S3 Canary Scripts Bucket - GitHub Actions Secret Name"
-  type        = string
-}
-
-variable "canary_scripts_bucket_value" {
-  description = "S3 Canary Scripts Bucket - GitHub Actions Secret Value"
-  type        = string
-  sensitive   = true
-}

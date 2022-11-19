@@ -40,6 +40,11 @@ variable "default_page" {
   type        = string
 }
 
+variable "ops_email_address" {
+  description = "Operations Team Email Address"
+  type        = string
+}
+
 variable "betteruptime_api_token" {
   description = "Better Uptime API Token"
   type        = string
@@ -71,16 +76,6 @@ variable "statuscake_api_token" {
   description = "StatusCake API Token"
   type        = string
   sensitive   = true
-}
-
-variable "ops_email_address" {
-  description = "Operations Team Email Address"
-  type        = string
-}
-
-variable "canary_cron" {
-  description = "Canary Cron Expression"
-  type        = string
 }
 
 variable "new_relic_account_id" {

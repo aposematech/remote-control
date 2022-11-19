@@ -1,15 +1,5 @@
-variable "sns_topic_name" {
-  description = "SNS Topic Name"
-  type        = string
-}
-
 variable "ops_email_address" {
   description = "Operations Email Address"
-  type        = string
-}
-
-variable "registered_domain_name" {
-  description = "Route 53 Registered Domain Name"
   type        = string
 }
 
@@ -23,8 +13,13 @@ variable "aws_account_number" {
   type        = string
 }
 
-variable "canary_cron" {
-  description = "Canary Cron Expression"
+variable "registered_domain_name" {
+  description = "Route 53 Registered Domain Name"
+  type        = string
+}
+
+variable "hosted_zone_id" {
+  description = "Hosted Zone ID"
   type        = string
 }
 
@@ -35,11 +30,6 @@ variable "betteruptime_subdomain" {
 
 variable "custom_status_page_subdomain" {
   description = "Custom Status Page Subdomain"
-  type        = string
-}
-
-variable "hosted_zone_id" {
-  description = "Hosted Zone ID"
   type        = string
 }
 

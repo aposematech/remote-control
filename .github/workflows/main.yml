@@ -21,7 +21,4 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Deploy app files to S3 website bucket
-      run: aws s3 sync ./app/ s3://${{ secrets.WEBSITE_BUCKET_NAME }} --exclude "canary.*" --delete # https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
-
-    - name: Deploy app files to S3 canary scripts bucket
-      run: aws s3 cp ./app/canary.zip s3://${{ secrets.CANARY_SCRIPTS_BUCKET_NAME }} # https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
+      run: aws s3 sync ./app/ s3://${{ secrets.WEBSITE_BUCKET_NAME }} --delete # https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
