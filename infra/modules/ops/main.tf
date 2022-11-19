@@ -29,6 +29,13 @@ resource "aws_sns_topic" "topic" {
   name = var.sns_topic_name
 }
 
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_subscription
+resource "aws_sns_topic_subscription" "topic_subscription" {
+  topic_arn = aws_sns_topic.topic.arn
+  protocol  = "email"
+  endpoint  = var.ops_email_address
+}
+
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_policy
