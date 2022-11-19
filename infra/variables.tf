@@ -78,10 +78,10 @@ variable "ops_email_address" {
   type        = string
 }
 
-# variable "canary_cron" {
-#   description = "Canary Cron Expression"
-#   type        = string
-# }
+variable "canary_cron" {
+  description = "Canary Cron Expression"
+  type        = string
+}
 
 variable "new_relic_account_id" {
   description = "New Relic Account ID"

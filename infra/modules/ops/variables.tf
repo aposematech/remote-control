@@ -23,10 +23,10 @@ variable "aws_account_number" {
   type        = string
 }
 
-# variable "canary_cron" {
-#   description = "Canary Cron Expression"
-#   type        = string
-# }
+variable "canary_cron" {
+  description = "Canary Cron Expression"
+  type        = string
+}
 
 variable "betteruptime_subdomain" {
   description = "Better Uptime Status Page Subdomain"

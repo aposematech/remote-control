@@ -101,13 +101,13 @@ module "web" {
 }
 
 module "ops" {
-  source                 = "./modules/ops"
-  sns_topic_name         = module.git.git_repo_name
-  ops_email_address      = var.ops_email_address
-  registered_domain_name = module.web.registered_domain_name
-  aws_account_number     = var.aws_account_number
-  aws_region             = var.aws_region
-  # canary_cron                  = var.canary_cron
+  source                       = "./modules/ops"
+  sns_topic_name               = module.git.git_repo_name
+  ops_email_address            = var.ops_email_address
+  registered_domain_name       = module.web.registered_domain_name
+  aws_account_number           = var.aws_account_number
+  aws_region                   = var.aws_region
+  canary_cron                  = var.canary_cron
   hosted_zone_id               = module.web.hosted_zone_id
   betteruptime_subdomain       = var.betteruptime_subdomain
   custom_status_page_subdomain = var.custom_status_page_subdomain
