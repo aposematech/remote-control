@@ -79,19 +79,21 @@ provider "newrelic" {
 }
 
 module "git" {
-  source                  = "./modules/git"
-  git_repo_name           = terraform.workspace
-  git_repo_description    = var.git_repo_description
-  git_repo_homepage_url   = "https://${var.registered_domain_name}"
-  git_repo_visibility     = var.git_repo_visibility
-  aws_access_key_id_name  = "AWS_ACCESS_KEY_ID"
-  aws_access_key_id_value = var.aws_access_key_id
-  aws_access_key_name     = "AWS_SECRET_ACCESS_KEY"
-  aws_access_key_value    = var.aws_access_key
-  aws_region_name         = "AWS_REGION"
-  aws_region_value        = var.aws_region
-  bucket_name             = "BUCKET_NAME"
-  bucket_value            = var.registered_domain_name
+  source                      = "./modules/git"
+  git_repo_name               = terraform.workspace
+  git_repo_description        = var.git_repo_description
+  git_repo_homepage_url       = "https://${var.registered_domain_name}"
+  git_repo_visibility         = var.git_repo_visibility
+  aws_access_key_id_name      = "AWS_ACCESS_KEY_ID"
+  aws_access_key_id_value     = var.aws_access_key_id
+  aws_access_key_name         = "AWS_SECRET_ACCESS_KEY"
+  aws_access_key_value        = var.aws_access_key
+  aws_region_name             = "AWS_REGION"
+  aws_region_value            = var.aws_region
+  website_bucket_name         = "WEBSITE_BUCKET_NAME"
+  website_bucket_value        = module.web.website_bucket_name
+  canary_scripts_bucket_name  = "CANARY_SCRIPTS_BUCKET_NAME"
+  canary_scripts_bucket_value = module.ops.canary_scripts_bucket_name
 }
 
 module "web" {

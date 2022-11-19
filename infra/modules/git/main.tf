@@ -39,8 +39,14 @@ resource "github_actions_secret" "git_secret_aws_region" {
   plaintext_value = var.aws_region_value
 }
 
-resource "github_actions_secret" "git_secret_bucket" {
+resource "github_actions_secret" "git_secret_website_bucket" {
   repository      = var.git_repo_name
-  secret_name     = var.bucket_name
-  plaintext_value = var.bucket_value
+  secret_name     = var.website_bucket_name
+  plaintext_value = var.website_bucket_value
+}
+
+resource "github_actions_secret" "git_secret_canary_scripts_bucket" {
+  repository      = var.git_repo_name
+  secret_name     = var.canary_scripts_bucket_name
+  plaintext_value = var.canary_scripts_bucket_value
 }

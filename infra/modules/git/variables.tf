@@ -51,13 +51,24 @@ variable "aws_region_value" {
   sensitive   = true
 }
 
-variable "bucket_name" {
-  description = "S3 Bucket - GitHub Actions Secret Name"
+variable "website_bucket_name" {
+  description = "S3 Website Bucket - GitHub Actions Secret Name"
   type        = string
 }
 
-variable "bucket_value" {
+variable "website_bucket_value" {
   description = "S3 Bucket - GitHub Actions Secret Value"
+  type        = string
+  sensitive   = true
+}
+
+variable "canary_scripts_bucket_name" {
+  description = "S3 Canary Scripts Bucket - GitHub Actions Secret Name"
+  type        = string
+}
+
+variable "canary_scripts_bucket_value" {
+  description = "S3 Canary Scripts Bucket - GitHub Actions Secret Value"
   type        = string
   sensitive   = true
 }
