@@ -13,6 +13,16 @@ variable "registered_domain_name" {
   type        = string
 }
 
+variable "aws_region" {
+  description = "AWS Region"
+  type        = string
+}
+
+variable "aws_account_number" {
+  description = "AWS Account Number"
+  type        = string
+}
+
 # variable "canary_cron" {
 #   description = "Canary Cron Expression"
 #   type        = string
@@ -30,11 +40,6 @@ variable "custom_status_page_subdomain" {
 
 variable "hosted_zone_id" {
   description = "Hosted Zone ID"
-  type        = string
-}
-
-variable "aws_region" {
-  description = "AWS Region"
   type        = string
 }
 

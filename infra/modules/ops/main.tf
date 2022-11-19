@@ -41,6 +41,99 @@ resource "aws_s3_bucket" "canary_bucket" {
   bucket = "${var.registered_domain_name}-canary"
 }
 
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
+data "aws_iam_policy_document" "canary_role_permissions_policy_document" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "s3:PutObject",
+      "s3:GetObject",
+    ]
+    resources = [
+      "${aws_s3_bucket.canary_bucket.arn}/*"
+    ]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
+      "s3:GetBucketLocation",
+    ]
+    resources = [
+      aws_s3_bucket.canary_bucket.arn
+    ]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
+      "logs:CreateLogGroup",
+    ]
+    resources = [
+      "arn:aws:logs:${var.aws_region}:${var.aws_account_number}:*",
+    ]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
+      "logs:CreateLogStream",
+      "logs:PutLogEvents",
+    ]
+    resources = [
+      "arn:aws:logs:${var.aws_region}:${var.aws_account_number}:log-group:/aws/lambda/cwsyn-${var.sns_topic_name}-*",
+    ]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
+      "s3:ListAllMyBuckets",
+      "xray:PutTraceSegments",
+    ]
+    resources = ["*"]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
+      "cloudwatch:PutMetricData",
+    ]
+    condition {
+      test     = "ForAnyValue:StringEquals"
+      variable = "cloudwatch:namespace"
+      values   = ["CloudWatchSynthetics"]
+    }
+    resources = ["*"]
+  }
+}
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy
+resource "aws_iam_policy" "canary_role_permissions" {
+  name   = "${var.sns_topic_name}-canary-role-permissions"
+  policy = data.aws_iam_policy_document.canary_role_permissions_policy_document.json
+}
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
+data "aws_iam_policy_document" "canary_assume_role_policy_document" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "sts:AssumeRole",
+    ]
+    principals {
+      type = "Service"
+      identifiers = [
+        "lambda.amazonaws.com",
+      ]
+    }
+  }
+}
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role
+resource "aws_iam_role" "canary_role" {
+  name               = "${var.sns_topic_name}-canary-role"
+  assume_role_policy = data.aws_iam_policy_document.canary_assume_role_policy_document.json
+  managed_policy_arns = [
+    aws_iam_policy.canary_role_permissions.arn,
+  ]
+}
+
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/synthetics_canary
 # resource "aws_synthetics_canary" "canary" {
 #   name                 = var.sns_topic_name
