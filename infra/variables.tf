@@ -71,25 +71,3 @@ variable "checkly_api_key" {
   type        = string
   sensitive   = true
 }
-
-variable "statuscake_api_token" {
-  description = "StatusCake API Token"
-  type        = string
-  sensitive   = true
-}
-
-variable "new_relic_account_id" {
-  description = "New Relic Account ID"
-  type        = string
-}
-
-variable "new_relic_api_key" {
-  description = "New Relic API Key"
-  type        = string
-  sensitive   = true
-}
-
-variable "rew_relic_region" {
-  description = "New Relic Region"
-  type        = string
-}

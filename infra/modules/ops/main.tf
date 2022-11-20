@@ -13,14 +13,6 @@ terraform {
       source  = "checkly/checkly"
       version = "~> 1.4.3"
     }
-    statuscake = {
-      source  = "StatusCakeDev/statuscake"
-      version = "~> 2.0.3"
-    }
-    newrelic = {
-      source  = "newrelic/newrelic"
-      version = "~> 3.1.0"
-    }
   }
 }
 
