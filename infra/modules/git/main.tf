@@ -13,6 +13,7 @@ resource "github_repository" "git_repo" {
   name         = var.git_repo_name
   description  = var.git_repo_description
   homepage_url = var.git_repo_homepage_url
+  topics       = var.git_repo_topics
   visibility   = var.git_repo_visibility
 }
 

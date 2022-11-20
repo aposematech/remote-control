@@ -4,13 +4,18 @@ variable "git_repo_name" {
 }
 
 variable "git_repo_description" {
-  description = "GitHub Description"
+  description = "GitHub Repo Description"
   type        = string
 }
 
 variable "git_repo_homepage_url" {
   description = "GitHub Repo Homepage URL"
   type        = string
+}
+
+variable "git_repo_topics" {
+  description = "GitHub Repo Topics"
+  type        = list(string)
 }
 
 variable "git_repo_visibility" {
