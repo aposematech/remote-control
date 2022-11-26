@@ -1,15 +1,7 @@
 body {
     background-color: black;
-    margin: 0px 0px 0px 0px;
+    margin: 0px;
     overflow-x: hidden;
-}
-
-nav {
-    background-color: black;
-    height: 75px;
-    position: fixed;
-    top: 0;
-    width: 100%;
 }
 
 footer {
