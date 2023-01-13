@@ -26,4 +26,5 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Deploy app files to S3 website bucket
-      run: aws s3 sync ./app/ s3://${{ secrets.WEBSITE_BUCKET_NAME }}
+      working-directory: app
+      run: aws s3 sync . s3://${{ secrets.WEBSITE_BUCKET_NAME }}
