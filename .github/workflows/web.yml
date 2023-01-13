@@ -1,4 +1,4 @@
-name: Upload app files to S3 bucket
+name: Upload web files to S3 bucket
 
 on:
   push:
@@ -6,11 +6,11 @@ on:
       - main
     paths:
       - '.github/workflows/**'
-      - 'app/**'
+      - 'web/**'
 
 jobs:
   deploy:
-    name: Upload app files to S3 bucket
+    name: Upload web files to S3 bucket
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -25,6 +25,6 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
 
-    - name: Upload app files to S3 bucket
-      working-directory: app
+    - name: Upload web files to S3 bucket
+      working-directory: web
       run: aws s3 sync . s3://${{ secrets.WEBSITE_BUCKET_NAME }}
