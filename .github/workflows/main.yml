@@ -3,7 +3,9 @@ name: Deploy app files to S3 bucket
 on:
   push:
     branches:
-    - main
+      - main
+    paths:
+      - 'app/**'
 
 jobs:
   deploy:
