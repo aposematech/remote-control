@@ -40,6 +40,9 @@ resource "betteruptime_status_page" "status_page" {
   subdomain     = var.betteruptime_subdomain
   custom_domain = "${var.custom_status_page_subdomain}.${var.registered_domain_name}"
   timezone      = "Central Time (US & Canada)"
+  design        = "v2"
+  theme         = "dark"
+  layout        = "horizontal"
 }
 
 # https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs/resources/betteruptime_status_page_resource
