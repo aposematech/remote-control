@@ -3,11 +3,11 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.40.0"
+      version = "~> 4.52.0"
     }
     betteruptime = {
       source  = "BetterStackHQ/better-uptime"
-      version = "~> 0.3.13"
+      version = "~> 0.3.15"
     }
     checkly = {
       source  = "checkly/checkly"
