@@ -19,7 +19,7 @@ function draw() {
     context.save();
     context.translate(width / 2, height / 2);
     context.rotate(angle / Math.PI);
-    for (i = 1; i < max; i++) {
+    for (i = 1; i < max; i += 1) {
         x = Math.sin(i / 2) * (radius / (max / 2));
         context.beginPath();
         if (i % 4 === 0) {
