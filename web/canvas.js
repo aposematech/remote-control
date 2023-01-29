@@ -14,36 +14,36 @@ var angle = 0;
 var max = 90;
 
 function draw() {
-    var i;
-    context.clearRect(0, 0, width, height);
-    context.save();
-    context.translate(width / 2, height / 2);
-    context.rotate(angle / Math.PI);
-    for (i = 1; i < max; i += 1) {
-        x = Math.sin(i / 2) * (radius / (max / 2));
-        context.beginPath();
-        if (i % 4 === 0) {
-            context.fillStyle = "white";
-        } else if (i % 2 === 0) {
-            context.fillStyle = "red";
-        } else {
-            context.fillStyle = "black";
-        }
-        context.arc(x, y, radius - i * (radius / max), 0, 2 * Math.PI, false);
-        context.fill();
+  var i;
+  context.clearRect(0, 0, width, height);
+  context.save();
+  context.translate(width / 2, height / 2);
+  context.rotate(angle / Math.PI);
+  for (i = 1; i < max; i += 1) {
+    x = Math.sin(i / 2) * (radius / (max / 2));
+    context.beginPath();
+    if (i % 4 === 0) {
+      context.fillStyle = "white";
+    } else if (i % 2 === 0) {
+      context.fillStyle = "red";
+    } else {
+      context.fillStyle = "black";
     }
-    context.restore();
-    angle += 0.2;
-    window.requestAnimationFrame(draw);
+    context.arc(x, y, radius - i * (radius / max), 0, 2 * Math.PI, false);
+    context.fill();
+  }
+  context.restore();
+  angle += 0.2;
+  window.requestAnimationFrame(draw);
 }
 
 window.onload = function () {
-    canvas = document.getElementById("canvas");
-    context = canvas.getContext("2d");
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-    radius = ((width > height) ? width : height);
-    window.requestAnimationFrame(draw);
+  canvas = document.getElementById("canvas");
+  context = canvas.getContext("2d");
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+  radius = width > height ? width : height;
+  window.requestAnimationFrame(draw);
 };

@@ -1,31 +1,31 @@
 ---
 name: Upload web files to S3 bucket
 
-on:  # yamllint disable-line rule:truthy
-    push:
-        branches:
-            - main
-        paths:
-            - .github/workflows/**
-            - web/**
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/**
+      - web/**
 
 jobs:
-    deploy:
-        name: Upload web files to S3 bucket
-        runs-on: ubuntu-latest
-        steps:
-            # https://github.com/marketplace/actions/checkout
-            - name: Checkout
-              uses: actions/checkout@v3
+  deploy:
+    name: Upload web files to S3 bucket
+    runs-on: ubuntu-latest
+    steps:
+      # https://github.com/marketplace/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v3
 
-            # https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions
-            - name: Configure AWS credentials
-              uses: aws-actions/configure-aws-credentials@v1-node16
-              with:
-                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                  aws-region: ${{ secrets.AWS_REGION }}
+      # https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-            - name: Upload web files to S3 bucket
-              working-directory: web
-              run: aws s3 sync . s3://${{ secrets.WEBSITE_BUCKET_NAME }}
+      - name: Upload web files to S3 bucket
+        working-directory: web
+        run: aws s3 sync . s3://${{ secrets.WEBSITE_BUCKET_NAME }}
