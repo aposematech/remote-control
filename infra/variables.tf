@@ -13,11 +13,6 @@ variable "aws_region" {
   type        = string
 }
 
-variable "aws_account_number" {
-  description = "AWS Account Number"
-  type        = string
-}
-
 variable "aws_access_key_id" {
   description = "AWS Access Key ID - GitHub Actions Secret"
   type        = string
@@ -37,11 +32,6 @@ variable "registered_domain_name" {
 
 variable "default_page" {
   description = "Static Website Default Page"
-  type        = string
-}
-
-variable "ops_email_address" {
-  description = "Operations Team Email Address"
   type        = string
 }
 

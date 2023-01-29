@@ -6,6 +6,8 @@ terraform {
       version = "~> 5.16.0"
     }
   }
+
+  required_version = "~> 1.3.7"
 }
 
 # https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository
@@ -15,11 +17,6 @@ resource "github_repository" "git_repo" {
   homepage_url = var.git_repo_homepage_url
   topics       = var.git_repo_topics
   visibility   = var.git_repo_visibility
-}
-
-# https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_secret
-data "github_actions_public_key" "git_repo_public_key" {
-  repository = var.git_repo_name
 }
 
 resource "github_actions_secret" "git_secret_aws_access_key_id" {

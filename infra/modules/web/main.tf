@@ -6,6 +6,8 @@ terraform {
       version = "~> 4.52.0"
     }
   }
+
+  required_version = "~> 1.3.7"
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone
@@ -111,7 +113,7 @@ resource "aws_cloudfront_distribution" "cloudfront_distribution" {
   enabled             = true
   default_root_object = var.default_page
 
-  aliases = ["${var.registered_domain_name}"]
+  aliases = [var.registered_domain_name]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]

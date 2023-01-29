@@ -26,6 +26,8 @@ terraform {
       version = "~> 1.6.3"
     }
   }
+
+  required_version = "~> 1.3.7"
 }
 
 # https://registry.terraform.io/providers/integrations/github/latest/docs
@@ -83,8 +85,6 @@ module "web" {
 
 module "ops" {
   source                       = "./modules/ops"
-  ops_email_address            = var.ops_email_address
-  aws_account_number           = var.aws_account_number
   aws_region                   = var.aws_region
   registered_domain_name       = module.web.registered_domain_name
   hosted_zone_id               = module.web.hosted_zone_id
