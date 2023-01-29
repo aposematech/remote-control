@@ -34,6 +34,7 @@ function draw() {
     }
     context.restore();
     angle += 0.2;
+    window.requestAnimationFrame(draw);
 }
 
 window.onload = function () {
@@ -44,5 +45,5 @@ window.onload = function () {
     canvas.width = width;
     canvas.height = height;
     radius = ((width > height) ? width : height);
-    window.setInterval(draw, 20);
+    window.requestAnimationFrame(draw);
 };
