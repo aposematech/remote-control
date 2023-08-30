@@ -4,6 +4,12 @@ body {
   overflow: hidden;
 }
 
+p {
+  font-family: monospace;
+  text-align: center;
+  color: white;
+}
+
 /* footer {
   background-color: black;
   position: absolute;
@@ -11,13 +17,3 @@ body {
   bottom: 0;
   left: 0;
 } */
-
-p {
-  font-family: monospace;
-  text-align: center;
-}
-
-a,
-noscript {
-  color: white;
-}
