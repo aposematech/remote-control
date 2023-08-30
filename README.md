@@ -1,8 +1,8 @@
-# demo-site
+# remote-control
 
 - [djfav.ninja](https://djfav.ninja)
 - [status.djfav.ninja](https://status.djfav.ninja)
 
 # aws
 
-![diagram](./demo-site.drawio.png)
+![diagram](./remote-control.drawio.png)
