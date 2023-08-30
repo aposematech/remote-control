@@ -22,13 +22,14 @@ function draw() {
   for (i = 1; i < max; i += 1) {
     x = Math.sin(i / 2) * (radius / (max / 2));
     context.beginPath();
-    if (i % 4 === 0) {
-      context.fillStyle = "white";
-    } else if (i % 2 === 0) {
-      context.fillStyle = "red";
-    } else {
-      context.fillStyle = "black";
-    }
+    // if (i % 4 === 0) {
+    //   context.fillStyle = "white";
+    // } else if (i % 2 === 0) {
+    //   context.fillStyle = "red";
+    // } else {
+    //   context.fillStyle = "black";
+    // }
+    context.fillStyle = i % 2 !== 0 ? "black" : "white";
     context.arc(x, y, radius - i * (radius / max), 0, 2 * Math.PI, false);
     context.fill();
   }
