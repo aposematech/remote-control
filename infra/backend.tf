@@ -3,7 +3,7 @@ terraform {
   cloud {
     organization = "djfav"
     workspaces {
-      name = "demo-site"
+      name = "remote-control"
     }
   }
 }
