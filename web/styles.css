@@ -4,13 +4,13 @@ body {
   overflow: hidden;
 }
 
-footer {
+/* footer {
   background-color: black;
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-}
+} */
 
 p {
   font-family: monospace;
