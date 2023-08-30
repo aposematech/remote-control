@@ -33,7 +33,6 @@ resource "betteruptime_status_page_resource" "status_page_resource" {
   resource_id    = betteruptime_monitor.monitor.id
   resource_type  = "Monitor"
   status_page_id = betteruptime_status_page.status_page.id
-  history        = true
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record
