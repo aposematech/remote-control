@@ -17,6 +17,7 @@ p {
   text-align: center;
 }
 
-a {
+a,
+noscript {
   color: white;
 }
