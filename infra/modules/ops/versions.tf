@@ -7,7 +7,7 @@ terraform {
     }
     betteruptime = {
       source  = "BetterStackHQ/better-uptime"
-      version = "~> 0.3.15"
+      version = "~> 0.3.19"
     }
     checkly = {
       source  = "checkly/checkly"
@@ -15,5 +15,5 @@ terraform {
     }
   }
 
-  required_version = "~> 1.3.7"
+  required_version = "~> 1.5.6"
 }
