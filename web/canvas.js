@@ -34,7 +34,7 @@ function draw() {
     context.fill();
   }
   context.restore();
-  angle += 0.15;
+  angle += 0.1;
   window.requestAnimationFrame(draw);
 }
 
