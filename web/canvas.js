@@ -11,7 +11,7 @@ var radius;
 var x = 0;
 var y = 0;
 var angle = 0;
-var max = 45;
+var max = 20;
 
 function draw() {
   var i;
@@ -29,7 +29,7 @@ function draw() {
     // } else {
     //   context.fillStyle = "black";
     // }
-    context.fillStyle = i % 2 === 0 ? "black" : "white";
+    context.fillStyle = i % 2 !== 0 ? "black" : "white";
     context.arc(x, y, radius - i * (radius / max), 0, 2 * Math.PI, false);
     context.fill();
   }
