@@ -4,7 +4,8 @@ body {
   overflow: hidden;
 }
 
-p {
+a,
+noscript {
   font-family: monospace;
   text-align: center;
   color: white;
