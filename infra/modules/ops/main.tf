@@ -3,7 +3,7 @@ resource "betteruptime_monitor" "monitor" {
   monitor_type = "status"
   url          = "https://${var.registered_domain_name}"
   email        = true
-  paused       = false
+  paused       = true
 
   check_frequency     = 180
   request_timeout     = 15
@@ -48,7 +48,7 @@ resource "aws_route53_record" "status_page_record" {
 resource "checkly_check" "browser_check" {
   name                      = var.registered_domain_name
   type                      = "BROWSER"
-  activated                 = true
+  activated                 = false
   should_fail               = false
   frequency                 = 15
   double_check              = true
