@@ -1,6 +1,6 @@
 import {
   to = module.web.aws_s3_bucket.website_bucket
-  id = var.registered_domain_name
+  id = "remotecontrol.solutions"
 }
 
 module "git" {
