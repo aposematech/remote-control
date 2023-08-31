@@ -1,3 +1,8 @@
+import {
+  to = module.web.aws_s3_bucket.website_bucket
+  id = var.registered_domain_name
+}
+
 module "git" {
   source                  = "./modules/git"
   git_repo_name           = terraform.workspace
