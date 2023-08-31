@@ -6,7 +6,7 @@ body {
 
 a,
 noscript {
+  color: white;
   font-family: monospace;
   text-align: center;
-  color: white;
 }
