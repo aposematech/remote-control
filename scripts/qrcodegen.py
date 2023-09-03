@@ -15,7 +15,7 @@ qr.make(fit=True)
 img = qr.make_image(fill_color="black", back_color="white")
 img.save("remotecontrol.png")
 # add border
-ImageOps.expand(Image.open('remotecontrol.png'),border=1,fill='black').save('remotecontrol_border.png')
+ImageOps.expand(Image.open('remotecontrol.png'), border=1, fill='black').save('remotecontrol_border.png')
 # resize
 img = Image.open('remotecontrol_border.png')
 img = img.resize((1500, 1500))
