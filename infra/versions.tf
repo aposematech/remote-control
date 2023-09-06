@@ -4,12 +4,12 @@ terraform {
     # https://registry.terraform.io/providers/integrations/github/latest/docs
     github = {
       source  = "integrations/github"
-      version = "~> 5.16.0"
+      version = "~> 5.34.0"
     }
     # https://registry.terraform.io/providers/hashicorp/aws/latest/docs
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.52.0"
+      version = "~> 5.15.0"
     }
     # https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs
     betteruptime = {
@@ -19,7 +19,7 @@ terraform {
     # https://registry.terraform.io/providers/checkly/checkly/latest/docs
     checkly = {
       source  = "checkly/checkly"
-      version = "~> 1.6.3"
+      version = "~> 1.7.1"
     }
   }
 
