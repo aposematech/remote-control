@@ -8,7 +8,7 @@ var radius;
 var x = 0;
 var y = 0;
 var angle = 0;
-var max = 27;
+var max = 33;
 
 function draw() {
   var i;
