@@ -26,6 +26,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
+      # https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
       - name: Upload web files to S3 bucket
         working-directory: web
         run: aws s3 sync . s3://${{ secrets.WEBSITE_BUCKET_NAME }}
