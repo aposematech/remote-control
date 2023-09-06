@@ -29,6 +29,7 @@ resource "betteruptime_status_page" "status_page" {
 
 # https://registry.terraform.io/providers/BetterStackHQ/better-uptime/latest/docs/resources/betteruptime_status_page_resource
 resource "betteruptime_status_page_resource" "status_page_resource" {
+  history        = true
   public_name    = var.registered_domain_name
   resource_id    = betteruptime_monitor.monitor.id
   resource_type  = "Monitor"
