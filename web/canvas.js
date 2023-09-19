@@ -1,3 +1,6 @@
+// https://codepen.io/djfav/pen/kBRQYJ
+// https://js1k.com/2014-dragons/demo/1959
+
 var window;
 var document;
 var canvas;
