@@ -1,5 +1,5 @@
 import {
-  to = module.git.github_actions_secret.git_secret_website_bucket
+  to = module.web.aws_s3_bucket.website_bucket
   id = "djfav.ninja"
 }
 
