@@ -3,11 +3,6 @@ data "aws_route53_zone" "zone" {
   name = var.registered_domain_name
 }
 
-import {
-  to = aws_s3_bucket.website_bucket
-  id = var.registered_domain_name
-}
-
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
 resource "aws_s3_bucket" "website_bucket" {
   bucket = var.registered_domain_name
