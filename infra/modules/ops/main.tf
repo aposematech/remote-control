@@ -52,7 +52,7 @@ resource "checkly_check" "browser_check" {
   type                      = "BROWSER"
   activated                 = true
   should_fail               = false
-  frequency                 = 15
+  frequency                 = 60
   use_global_alert_settings = true
 
   locations = [
