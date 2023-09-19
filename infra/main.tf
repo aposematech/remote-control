@@ -1,6 +1,6 @@
 import {
   to = aws_s3_bucket.website_bucket
-  id = var.registered_domain_name
+  id = "djfav.ninja"
 }
 
 module "git" {
