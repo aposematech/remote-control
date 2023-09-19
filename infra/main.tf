@@ -1,3 +1,8 @@
+import {
+  to = module.git.github_actions_secret.git_secret_website_bucket
+  id = "djfav.ninja"
+}
+
 module "git" {
   source                  = "./modules/git"
   git_repo_name           = terraform.workspace
