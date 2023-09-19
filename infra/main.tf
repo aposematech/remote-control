@@ -1,8 +1,3 @@
-import {
-  to = module.web.aws_s3_bucket.website_bucket
-  id = "djfav.ninja"
-}
-
 module "git" {
   source                  = "./modules/git"
   git_repo_name           = terraform.workspace
