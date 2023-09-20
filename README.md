@@ -1,7 +1,7 @@
 # remote-control
 
-- [remotecontrol.solutions](https://remotecontrol.solutions)
-- [status.remotecontrol.solutions](https://status.remotecontrol.solutions)
+- [djfav.ninja](https://djfav.ninja)
+- [status.djfav.ninja](https://status.djfav.ninja)
 
 # aws
 
